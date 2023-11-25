@@ -1,0 +1,71 @@
+<!-- can also be formatted like this for readability purposes -->
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+                        https://raw.githubusercontent.com/Gethe/wow-ui-source/live/Interface/FrameXML/UI_shared.xsd">
+    <Frame name="MiAddonMainFrame" parent="UIParent" inherits="BasicFrameTemplateWithInset">
+        <Size x="300" y="200"/>
+        <Anchors>
+            <Anchor point="CENTER" relativePoint="CENTER"/>
+        </Anchors>
+        <Scripts>
+            <OnLoad>
+                self:SetMovable(true);
+                self:EnableMouse(true);
+            </OnLoad>
+            <OnDragStart>
+                self:StartMoving();
+            </OnDragStart>
+            <OnDragStop>
+                self:StopMovingOrSizing();
+            </OnDragStop>
+        </Scripts>
+
+        <TitleRegion>
+            <FontString name="$parentTitle" inherits="GameFontHighlight" text="Inicio de Sesión">
+                <Anchors>
+                    <Anchor point="LEFT" relativePoint="LEFT" x="5"/>
+                </Anchors>
+            </FontString>
+        </TitleRegion>
+
+        <FontString name="$parentUsernameLabel" inherits="GameFontNormal" text="Usuario:">
+            <Anchors>
+                <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="20" y="-40"/>
+            </Anchors>
+        </FontString>
+
+        <EditBox name="txtUsuario" inherits="InputBoxTemplate">
+            <Size x="200" y="30"/>
+            <Anchors>
+                <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="150" y="-40"/>
+            </Anchors>
+        </EditBox>
+
+        <FontString name="$parentPasswordLabel" inherits="GameFontNormal" text="Contraseña:">
+            <Anchors>
+                <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="20" y="-100"/>
+            </Anchors>
+        </FontString>
+
+        <EditBox name="txtPassword" inherits="InputBoxTemplate">
+            <Size x="200" y="30"/>
+            <Anchors>
+                <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="150" y="-100"/>
+            </Anchors>
+            <Scripts>
+                <OnLoad>
+                    self:SetPassword(true);
+                </OnLoad>
+            </Scripts>
+        </EditBox>
+
+        <Button name="btnLogin" inherits="GameMenuButtonTemplate" text="Iniciar Sesión">
+            <Size x="200" y="30"/>
+            <Anchors>
+                <Anchor point="TOPLEFT" relativePoint="TOPLEFT" x="150" y="-160"/>
+            </Anchors>
+        </Button>
+
+    </Frame>
+</Ui>
